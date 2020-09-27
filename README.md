@@ -44,9 +44,11 @@ The main reason behind our decision in our choice to pass the builder into the c
 
 # Running The Animation
 
-To run the program, user have to download A8_1.jar from the folder resources as well as all the text files, which are in the in the same file. Then, put all the files in a new folder, type out the configuration in the command-prompt/terminal. In the run configuration, the user can also specify command-line arguments, such as the file you want to read in, the location you want the output to be printed, the view name you want to use, and the speed of the animation. The options for the view name are "text," "visual," "edit," and "svg". For example,
+To run the program, user have to download A8_1.jar from the folder resources as well as all the text files, which are in the in the same file. Then, put all the files in a new folder, type out the configuration in the command-prompt/terminal. In the run configuration, the user can also specify command-line arguments, such as the file you want to read in, the location you want the output to be printed, the view name you want to use, and the speed of the animation. The options for the view name are "text," "visual," "edit," and "svg". 
 
-java -jar A8_1.jar -in text-transcript.txt -speed 50 -view visual -out out.txt
+For example:
+
+    java -jar Animator.jar -in smalldemo.txt -speed 50 -view visual -out out.txt
 
 This command will use text-transcript.txt for the animation file with its output going to the file out.txt, and create a visual view to show the animation at a speed of 50 ticks per second.
 
