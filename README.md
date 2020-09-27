@@ -1,21 +1,16 @@
-This is the README for our Animation Model made by Lisa Lam and Soumeng Chea. We will discuss our decision choices on the designs for this assignment. Also, we will discuss what we took out, added, and etc. for this assignment.
+This is the README for The Easy Animation Model made by Lisa Lam and Soumeng Chea. We will discuss our decision choices on the designs for this assignment. Also, we will discuss what we took out, added, and etc. for this assignment.
 
-# Assignment 7
+# Part 1
 
 After much discussion about the assignment, we both decided to focus our first animation model into two types of interfaces – the ShapesInterface and AnimationInterface, which would allow us to our animation efficiently. By taking this route, we able to create a ShapeInterface for our implement shape, which the class method only contains the getter functions. Since we need to pass any shape implements after its mutation, we do not want the user to be able to input anything else, which would potentially mess the shape field. By using this approach, we able to mutate the field shapes within our model command. Otherwise, we would have to iterate and improvise new objects for every iteration of the animation. If we decided to use a different approach, it would take thousand of secs to run the program because there are thousands of shapes. Along with ShapeInterface, we also use an enum class for ShapeTypes, a Position class, and AbstractShape to implement the necessary getters and constructors for each field without repetitive codes for each shape. Having two main interface makes it easier to create any shapes and the implementation of our shape interface.
 
 Another interface constructor that we created is AnimationInterface. Similar to ShapeInterface, the interface mainly getter command such as getStartState(), getEndState(), and so on. By implementing a time and shape type, the get state method would return the changes according to the command line. Along with the interface, we also made an abstract command class – AbstractAnimation. With this abstract command class, we created a class method where it throws in an illegal exception statement if either the width or height is negative or if the appearance time is less than disappearance time. For when we want to change object color, its dimension, and its move – we decided to create a separate class method, which extends from AbstractAnimation. We decided to design the three command classes separately because we anticipate that the user would want to move the shapes around, change the shape color, or enhance the shape size.
 
-# Assignment 7 Summary End
+# Part 2
 
-# Assignment 8
+For this assignment, we spent days trying to connect our part 1 code to the AnimationBuilder and AnimationReader. After working on it for quite some time, we both concluded that we decided to scrap everything and went back to square 1. 
 
-For this assignment – Assignment 8, we spent days trying to connect our assignment 7 code to the AnimationBuilder and AnimationReader. After working on it for quite some time, we both concluded that we decided to scrap everything and went back to square 1. 
-
-For a starter, child – this is probably one of the most complicated and tough assignments out of all the assignments for this semester. "There is always a light waiting at the end of the tunnel,"
-Am I right?
-
-Okay, on to what we suppose to be here for – the re-design of Assignment 7 and implement new methods for Assignment 8. We both decided to start the assignment from scratch and tried to refactor some of our old code from the previous classes and interface to get to "work" with the new re-design animation model. 
+We both decided to start the assignment from scratch and tried to refactor some of our part 1 code from the previous classes and interface to get to "work" with the new re-design animation model. 
 
 The first route that we took in this assignment is to created new interfaces for the model but also provided supporting interfaces along with the "main" interface. We overhauled our entire builder class to support the new incoming interface(s) that used to create models that given to us with the new code. In doing so, we had to redo how we wrote commands as we initially divided commands up based on what fields were changing. Another change we made was that we added getters for the width, height, commands, and shapes to our model, making sure that we do not reference the maps that the model uses to create the animation. And finally, we also implement a new method – draw() and duplicate(), which we did not have for the previous assignment. These methods would help us to draw our shapes for the animation and make a copy of the shape that we need.
 
@@ -23,8 +18,7 @@ On the new code, we have a total of 5 interfaces for our model functions. Well, 
 
 The main course of this assignment would focusing on we approach the View commands of the animation.
 
-In this assignment, we decided to create one interface called IView, which is the primary interface that SVG, Textual, and Visual view all share one standard method, play(). This method either starts the animation in the visual case or creates the append containing the text that represents the animation in the test cases. We also created an IView extension interface for SVG and Textual view that only focuses on a getText() command – IViewText. This method only returns the string that
-represents the animation as a text, a description text.
+In this assignment, we decided to create one interface called IView, which is the primary interface that SVG, Textual, and Visual view all share one standard method, play(). This method either starts the animation in the visual case or creates the append containing the text that represents the animation in the test cases. We also created an IView extension interface for SVG and Textual view that only focuses on a getText() command – IViewText. This method only returns the string that represents the animation as a text, a description text.
 
 Out of the three classes for Views, the TextualView is probably the most simple out of all. This class implemented the play() as well as getText() as we formatted. The play() use as an initialized for the append, which goes through shapes and commands of the given model. Their output is a string of the shape start and ends the time of the shape.
 
@@ -34,10 +28,9 @@ Last View methods, the Visual View methods use a Javax swing library that create
 
 Last but not least, we also wrote the main class called "Main." We wrote this class in a not subtle nod quality compare to our work. In the method, we look through the given parameter and a method that allows the user to input their preferred values for the animation.
 
-# Assignment 8 Summary End
-# Assignment 10 (Finale)
+# Part 3 – Finale
 
-In comparison to Assignment 8, we did not do anything much – such as re-design from scratch, in this assignment. However, we did tweak small things here and there. We rename some files, so it fits more appropriately with their contractor duties. We changed MCommand to AnimationImpl, and I think that is all the small change we made, although we did add enum for the model package – ShapeTypes.
+In comparison to Part 2, we did not do anything much – such as re-design from scratch, in this assignment. However, we did tweak small things here and there. We rename some files, so it fits more appropriately with their contractor duties. We changed MCommand to AnimationImpl, and I think that is all the small change we made, although we did add enum for the model package – ShapeTypes.
 
 For a starter, we refactored some of our code and rearranged them, so it would able to work with new methods and classes efficiently. We added another interface to our View package called IEditView. The new interface contains a bunch of editing methods in it, and we also use the Java build-in library, ActionListener, for the setter methods. We also extended the existing builder constructor with another interface – IBuild, which contains a getter for shapes and commands. 
 
@@ -47,10 +40,13 @@ We deal with some errors along the way. Because of that, we decided to implement
 
 The play() method in our controller uses the builder that contained inside the controller to build a model based on the command, which then with the schedule timer based on the given tick – it builts the animation for the user.
 
-The main reason behind our decision in our choice to pass the builder into the controller is that it makes the animation run smoothly. Whereas implementing a complete model would take more time to animate.
+The main reason behind our decision in our choice to pass the builder into the controller is that it makes the animation run smoothly. As for our implementation, we also store all of the shapes and commands in a LinkedHashmap – which sort any commands based on their start time. The implementation mainly focus on contructors in Model package and View package.
 
-# Assignment 10 Summary End
+# Running The Animation
 
-# Conclusion
+To run the program, user have to download A8_1.jar from the folder resources as well as all the text files, which are in the in the same file. Then, put all the files in a new folder, type out the configuration in the command-prompt/terminal. In the run configuration, the user can also specify command-line arguments, such as the file you want to read in, the location you want the output to be printed, the view name you want to use, and the speed of the animation. The options for the view name are "text," "visual," "edit," and "svg". For example,
 
-In conlusion, this assignment – from start to finish, it was a roller coaster ride for us both. We went from thinking two main interfaces would do the trick to having multiple interfaces for each any everything methods. In our implementation, we also store all of the shapes and commands in a LinkedHashmap, which sort any commands based on their start time. The implementation mainly focus on contructors in Model package and View package. Because of the main component of the assignment 8 and assignment 10 based on the project design, we think it best to separate most function/methods into different interfaces. 
+java -jar A8_1.jar -in text-transcript.txt -speed 50 -view visual -out out.txt
+
+This command will use text-transcript.txt for the animation file with its output going to the file out.txt, and create a visual view to show the animation at a speed of 50 ticks per second.
+
