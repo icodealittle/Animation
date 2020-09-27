@@ -48,7 +48,7 @@ To run the program, user have to download A8_1.jar from the folder resources as 
 
 For example:
 
-    java -jar Animator.jar -in smalldemo.txt -speed 50 -view visual -out out.txt
+    java -jar A8_1.jar -in smalldemo.txt -speed 50 -view visual -out out.txt
 
 This command will use text-transcript.txt for the animation file with its output going to the file out.txt, and create a visual view to show the animation at a speed of 50 ticks per second.
 
